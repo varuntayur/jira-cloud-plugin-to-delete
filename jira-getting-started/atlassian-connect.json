@@ -1,0 +1,74 @@
+{
+    "key": "my-app",
+    "name": "My app",
+    "description": "My very first app",
+    "baseUrl": "{{localBaseUrl}}",
+    "authentication": {
+        "type": "jwt"
+    },
+    "lifecycle": {
+        "installed": "/installed"
+    },
+    "scopes": [
+        "READ"
+    ],
+    "modules": {
+        "generalPages": [
+            {
+                "key": "hello-world-page-jira",
+                "location": "system.top.navigation.bar",
+                "name": {
+                    "value": "Hello World"
+                },
+                "url": "/hello-world",
+                "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            },
+            {
+                "key": "hello-world-page-confluence",
+                "location": "system.header/left",
+                "name": {
+                    "value": "Hello World"
+                },
+                "url": "/hello-world",
+                "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            }
+        ],
+        "webPanels": [
+            {
+                "url": "/web-panel-issues",
+                "location": "atl.jira.view.issue.left.context",
+                "layout": {
+                  "width": "10px",
+                  "height": "100%"
+                },
+                "weight": 50,
+                "supportsNative": false,
+                "name": {
+                  "value": "Issues"
+                },
+                "key": "web-panel-issues"
+            },
+            {
+                "url": "/web-panel-reports",
+                "location": "atl.jira.view.issue.right.context",
+                "layout": {
+                  "width": "10px",
+                  "height": "100%"
+                },
+                "weight": 50,
+                "supportsNative": false,
+                "name": {
+                  "value": "Reports"
+                },
+                "key": "web-panel-reports"
+            }
+        ],
+        "webSections": [
+            
+        ]
+    }
+}
